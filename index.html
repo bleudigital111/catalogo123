@@ -1,415 +1,426 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Casas Disponibles</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casas Disponibles</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
 
-<style>
-:root{
---azul:#1e3a8a;
---dorado:#b45309;
---verde:#15803d;
---oscuro:#0f172a;
---fondo:#f1f5f9;
-}
+    <style>
+      :root {
+        --azul: #1e3a8a;
+        --dorado: #b45309;
+        --verde: #15803d;
+        --oscuro: #0f172a;
+        --fondo: #f1f5f9;
+      }
 
-*{box-sizing:border-box;font-family:Poppins}
+      * {
+        box-sizing: border-box;
+        font-family: Poppins;
+      }
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--oscuro);
+      }
 
-body{margin:0;background:var(--fondo);color:var(--oscuro)}
+      header {
+        background: white;
+        padding: 40px 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
 
-header{
-background:white;
-padding:40px 20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
+      header h1 {
+        margin: 0;
+        color: var(--azul);
+        font-size: 2.4rem;
+      }
 
-header h1{margin:0;color:var(--azul);font-size:2.4rem}
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+      }
 
-.container{max-width:1200px;margin:auto;padding:40px 20px}
+      .seccion {
+        margin-bottom: 70px;
+      }
 
-.seccion{margin-bottom:70px}
-.seccion h2{
-border-left:6px solid;
-padding-left:15px;
-margin-bottom:30px;
-font-size:1.8rem;
-}
+      .seccion h2 {
+        border-left: 6px solid;
+        padding-left: 15px;
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+      }
 
-.infonavit h2{color:var(--azul);border-color:var(--azul)}
-.bancario h2{color:var(--dorado);border-color:var(--dorado)}
-.contado h2{color:var(--verde);border-color:var(--verde)}
+      .infonavit h2 {
+        color: var(--azul);
+        border-color: var(--azul);
+      }
+      .bancario h2 {
+        color: var(--dorado);
+        border-color: var(--dorado);
+      }
+      .contado h2 {
+        color: var(--verde);
+        border-color: var(--verde);
+      }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
 
-.card{
-background:white;
-border-radius:22px;
-padding:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.12);
-transition:.4s;
-position:relative;
-}
+      .card {
+        background: white;
+        border-radius: 22px;
+        padding: 22px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        transition: 0.4s;
+        position: relative;
+      }
 
-.card:hover{transform:translateY(-8px)}
+      .card:hover {
+        transform: translateY(-8px);
+      }
 
-.img{
-height:190px;
-background-size:cover;
-background-position:center;
-border-radius:16px;
-margin-bottom:15px;
-}
+      .img {
+        height: 190px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 16px;
+        margin-bottom: 15px;
+      }
 
-.tag{
-position:absolute;
-top:18px;
-right:18px;
-padding:7px 16px;
-border-radius:30px;
-font-size:.7rem;
-color:white;
-}
+      .tag {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        padding: 7px 16px;
+        border-radius: 30px;
+        font-size: 0.7rem;
+        color: white;
+      }
 
-.tag.infonavit{background:var(--azul)}
-.tag.bancario{background:var(--dorado)}
-.tag.contado{background:var(--verde)}
+      .tag.infonavit {
+        background: var(--azul);
+      }
+      .tag.bancario {
+        background: var(--dorado);
+      }
+      .tag.contado {
+        background: var(--verde);
+      }
 
-.card h3{margin:8px 0}
-.precio{font-size:1.5rem;font-weight:700;color:var(--verde)}
-.detalles{font-size:.9rem;opacity:.85}
+      .card h3 {
+        margin: 8px 0;
+      }
+      .precio {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--verde);
+      }
 
-.botones{margin-top:15px}
+      .detalles {
+        font-size: 0.9rem;
+        opacity: 0.85;
+      }
 
-.btn-vermas{
-width:100%;
-border:none;
-background:var(--azul);
-color:white;
-padding:10px;
-border-radius:12px;
-cursor:pointer;
-margin-bottom:8px;
-}
+      .botones {
+        margin-top: 15px;
+      }
 
-.extra{
-max-height:0;
-overflow:hidden;
-transition:max-height .4s ease;
-}
+      .btn-vermas {
+        width: 100%;
+        border: none;
+        background: var(--azul);
+        color: white;
+        padding: 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        margin-bottom: 8px;
+      }
 
-.extra.active{max-height:300px;margin-bottom:10px}
+      .extra {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
 
-.caracteristicas{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-font-size:.85rem;
-}
+      .extra.active {
+        max-height: 300px;
+        margin-bottom: 10px;
+      }
 
-.caracteristicas div{display:flex;align-items:center;gap:8px}
-.caracteristicas i{color:var(--verde)}
+      .caracteristicas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        font-size: 0.85rem;
+      }
 
-.botones a{
-display:block;
-background:#25D366;
-color:white;
-padding:12px;
-text-align:center;
-border-radius:12px;
-text-decoration:none;
-font-weight:500;
-}
+      .caracteristicas div {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
 
-footer{text-align:center;padding:30px;font-size:.85rem;opacity:.7}
-</style>
-</head>
+      .caracteristicas i {
+        color: var(--verde);
+      }
 
-<body>
+      footer {
+        text-align: center;
+        padding: 30px;
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
 
-<header>
-<h1>🏡 Casas Disponibles</h1>
-</header>
+  <body>
+    <header>
+      <h1>🏡 Casas Disponibles</h1>
+    </header>
 
-<div class="container">
+    <div class="container">
+      <!-- INFONAVIT -->
+      <section class="seccion infonavit">
+        <h2>INFONAVIT</h2>
+        <div class="grid">
+          <!-- Praderas del Valle -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/praderas.jpeg')"
+            ></div>
+            <span class="tag infonavit">INFONAVIT</span>
+            <h3>Praderas del Valle</h3>
+            <div class="precio">$480,000</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 1 Recámara</div>
+                  <div><i class="fa-solid fa-bath"></i> 1 Baño</div>
+                  <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<!-- INFONAVIT -->
-<section class="seccion infonavit">
-<h2>INFONAVIT</h2>
-<div class="grid">
+          <!-- Fraccionamiento Los Naranjos -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/naranjos.jpeg')"
+            ></div>
+            <span class="tag infonavit">INFONAVIT</span>
+            <h3>Fraccionamiento Los Naranjos</h3>
+            <div class="precio">$1,800,000</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
+                  <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
+                  <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="card">
-<div class="img" style="background-image:url('https://images.adsttc.com/media/images/5d1c/eb8e/284d/d16c/4100/0031/newsletter/_FJR5838.jpg')"></div>
-<span class="tag infonavit">INFONAVIT</span>
-<h3>Fracc. Los Naranjos</h3>
-<div class="precio">$1,800,000</div>
-<div class="detalles">3 rec · A 5 min Galerías Toluca</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-<div><i class="fa-solid fa-bath"></i> 2 Baños</div>
-<div><i class="fa-solid fa-car"></i> 2 Cajones</div>
-<div><i class="fa-solid fa-ruler-combined"></i> 120 m²</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
+          <!-- Banus -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/banus.jpeg')"
+            ></div>
+            <span class="tag infonavit">INFONAVIT</span>
+            <h3>Banus</h3>
+            <div class="precio">$2,200,000</div>
 
-<div class="card">
-<div class="img" style="background-image:url('https://cdn.ara.com.mx/production/images/desarrollos/estado-de-mexico/la-escondida-residencial/casas-modelo-arce/gallery/0.webp')"></div>
-<span class="tag infonavit">INFONAVIT</span>
-<h3>Banus</h3>
-<div class="precio">$2,200,000</div>
-<div class="detalles">3 recámaras</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-<div><i class="fa-solid fa-bath"></i> 2 Baños</div>
-<div><i class="fa-solid fa-car"></i> 2 Cajones</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
+                  <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
+                  <div><i class="fa-solid fa-car"></i> 2 Cajónes</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="card">
-<div class="img" style="background-image:url('https://images.homify.com/v1443654352/p/photo/image/960352/Imativa_Casa_Carrasco_0013.jpg')"></div>
-<span class="tag infonavit">INFONAVIT</span>
-<h3>Rinconada del Valle</h3>
-<div class="precio">$1,240,000</div>
-<div class="detalles">Terreno excedente</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-<div><i class="fa-solid fa-ruler-combined"></i> Terreno excedente</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
+          <!-- Bosques del Nevado -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/bosques-del-nevado.jpeg')"
+            ></div>
+            <span class="tag infonavit">INFONAVIT</span>
+            <h3>Bosques del Nevado</h3>
+            <div class="precio">$1,300,000</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
+                  <div><i class="fa-solid fa-bath"></i> 3 Baños</div>
+                  <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<div class="card">
-<div class="img" style="background-image:url('https://images.adsttc.com/media/images/5d1c/eb8e/284d/d16c/4100/0031/newsletter/_FJR5838.jpg')"></div>
-<span class="tag infonavit">INFONAVIT</span>
-<h3>Geo San Mateo</h3>
-<div class="precio">$1,420,000</div>
-<div class="detalles">Crédito Infonavit</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-<div><i class="fa-solid fa-bath"></i> 2 Baños</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
+          <!-- Rinconada del Valle -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/rinconada.jpeg')"
+            ></div>
+            <span class="tag infonavit">INFONAVIT</span>
+            <h3>Rinconada del Valle</h3>
+            <div class="precio">$1,240,000</div>
+            <div class="detalles">Terreno excedente</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div>
+                    <i class="fa-solid fa-ruler-combined"></i> Terreno excedente
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-</div>
-</section>
+          <!-- Geo San Mateo -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/geo-san-mateo.jpeg')"
+            ></div>
+            <span class="tag infonavit">INFONAVIT</span>
+            <h3>Geo San Mateo</h3>
+            <div class="precio">$1,420,000</div>
+            <div class="detalles">Infonavit</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
+                  <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- BANCARIO -->
-<section class="seccion bancario">
-<h2>BANCARIO / MIXTO</h2>
-<div class="grid">
+      <!-- BANCARIO / MIXTO -->
+      <section class="seccion bancario">
+        <h2>BANCARIO / MIXTO</h2>
+        <div class="grid">
+          <!-- Santa Teresa -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/santa\ teresa.jpeg')"
+            ></div>
+            <span class="tag bancario">BANCARIO</span>
+            <h3>Santa Teresa</h3>
+            <div class="precio">$600,000</div>
 
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Santa+Teresa')"></div>
-<span class="tag bancario">BANCARIO</span>
-<h3>Santa Teresa (Pie de casa)</h3>
-<div class="precio">$600,000</div>
-<div class="detalles">Bancario / Contado</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 2 Recámaras</div>
-<div><i class="fa-solid fa-home"></i> Pie de casa</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 1 Recámara</div>
+                  <div><i class="fa-solid fa-bath"></i> 1 Baño</div>
+                  <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Bosques+del+Nevado')"></div>
-<span class="tag bancario">MIXTO</span>
-<h3>Bosques del Nevado</h3>
-<div class="precio">$1,300,000</div>
-<div class="detalles">Infonavit / Bancario</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-<div><i class="fa-solid fa-tv"></i> Sala TV</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
+      <!-- CONTADO / RECURSOS PROPIOS -->
+      <section class="seccion contado">
+        <h2>RECURSOS PROPIOS</h2>
+        <div class="grid">
+          <!-- Héroes del 5 de Mayo II -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/heroes.jpeg')"
+            ></div>
+            <span class="tag contado">CONTADO</span>
+            <h3>Héroes del 5 de Mayo II</h3>
+            <div class="precio">$3,000,000</div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-bed"></i> 4 Recámaras</div>
+                  <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-</div>
-</section>
+          <!-- Terreno San Pablo Autopan -->
+          <div class="card">
+            <div
+              class="img"
+              style="background-image: url('./img/terreno-san-pablo.jpeg')"
+            ></div>
+            <span class="tag contado">TERRENO</span>
+            <h3>Terreno San Pablo Autopan</h3>
+            <div class="precio">$1,700,000</div>
+            <div class="detalles">
+              Todos los servicios en calle · Solo contado
+            </div>
+            <div class="botones">
+              <button class="btn-vermas">👁️ Ver más</button>
+              <div class="extra">
+                <div class="caracteristicas">
+                  <div><i class="fa-solid fa-road"></i> Calle pavimentada</div>
+                  <div>
+                    <i class="fa-solid fa-plug"></i> Servicios completos
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
 
-<!-- CONTADO -->
-<section class="seccion contado">
-<h2>RECURSOS PROPIOS</h2>
-<div class="grid">
+    <footer>© 2026 Casas Disponibles</footer>
 
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Rincon+del+Alamo')"></div>
-<span class="tag contado">CONTADO</span>
-<h3>Rincón del Álamo</h3>
-<div class="precio">$530,000</div>
-<div class="detalles">Pie de casa</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 2 Recámaras</div>
-<div><i class="fa-solid fa-home"></i> Pie de casa</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Colinas+del+Sol')"></div>
-<span class="tag contado">CONTADO</span>
-<h3>Colinas del Sol – Almoloya</h3>
-<div class="precio">$460,000</div>
-<div class="detalles">Pie de casa</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 2 Recámaras</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Praderas+del+Valle')"></div>
-<span class="tag contado">CONTADO</span>
-<h3>Praderas del Valle</h3>
-<div class="precio">$480,000</div>
-<div class="detalles">Recursos propios</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 2 Recámaras</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Rancho+San+Juan')"></div>
-<span class="tag contado">CONTADO</span>
-<h3>Rancho San Juan</h3>
-<div class="precio">$550,000</div>
-<div class="detalles">Pie de casa</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-home"></i> Pie de casa</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Heroes+5+de+Mayo')"></div>
-<span class="tag contado">CONTADO</span>
-<h3>Héroes del 5 de Mayo II</h3>
-<div class="precio">$3,000,000</div>
-<div class="detalles">5 recámaras · Solo contado</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 5 Recámaras</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Terreno+San+Pablo')"></div>
-<span class="tag contado">TERRENO</span>
-<h3>San Pablo Autopan</h3>
-<div class="precio">$1,700,000</div>
-<div class="detalles">Todos los servicios</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-road"></i> Calle pavimentada</div>
-<div><i class="fa-solid fa-plug"></i> Servicios completos</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-<div class="card">
-<div class="img" style="background-image:url('https://via.placeholder.com/600x400?text=Tenango+del+Valle')"></div>
-<span class="tag contado">CONTADO</span>
-<h3>Casa en Tenango del Valle</h3>
-<div class="precio">$1,800,000</div>
-<div class="detalles">Recursos propios</div>
-<div class="botones">
-<button class="btn-vermas">👁️ Ver más</button>
-<div class="extra">
-<div class="caracteristicas">
-<div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-</div>
-</div>
-<a href="#">📲 Me interesa</a>
-</div>
-</div>
-
-</div>
-</section>
-
-</div>
-
-<footer>© 2026 Casas Disponibles</footer>
-
-<script>
-document.querySelectorAll('.btn-vermas').forEach(btn=>{
-btn.addEventListener('click',()=>{
-const extra=btn.nextElementSibling;
-extra.classList.toggle('active');
-btn.textContent=extra.classList.contains('active')?'❌ Ocultar':'👁️ Ver más';
-});
-});
-</script>
-
-</body>
+    <script>
+      document.querySelectorAll(".btn-vermas").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const extra = btn.nextElementSibling;
+          extra.classList.toggle("active");
+          btn.textContent = extra.classList.contains("active")
+            ? "❌ Ocultar"
+            : "👁️ Ver más";
+        });
+      });
+    </script>
+  </body>
 </html>
