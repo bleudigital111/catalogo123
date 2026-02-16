@@ -48,12 +48,54 @@
         background: #000; /* fondo negro para espacios del video */
       }
 
-      .hero-video {
+      /* HERO VIDEO PROFESIONAL */
+      .hero {
         position: relative;
+        height: 80vh;
+        min-height: 500px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* VIDEO OCUPA TODO */
+      .hero-video {
+        position: absolute;
         width: 100%;
         height: 100%;
-        object-fit: contain; /* video completo sin recortes */
-        z-index: 1;
+        object-fit: cover; /* LLENA TODO SIN FONDO NEGRO */
+      }
+
+      /* OVERLAY MÁS CLARO */
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          rgba(0, 0, 0, 0.2),
+          rgba(0, 0, 0, 0.35)
+        ); /* MÁS CLARO */
+      }
+
+      /* TEXTO */
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        animation: fadeUp 1.2s ease forwards;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        opacity: 0.95;
       }
 
       .hero-overlay {
@@ -263,7 +305,36 @@
       .caracteristicas i {
         color: var(--verde);
       }
+      .extra {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.4s ease;
+      }
 
+      .extra.active {
+        max-height: 400px;
+        margin-top: 15px;
+      }
+
+      .btn-ubicacion {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border: 1px solid #15803d;
+        color: #15803d;
+        transition: 0.3s ease;
+      }
+
+      .btn-ubicacion:hover {
+        background: #15803d;
+        color: white;
+      }
       footer {
         text-align: center;
         padding: 30px;
@@ -286,10 +357,7 @@
         Tu navegador no soporta video HTML5.
       </video>
       <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>🏡 Casas Disponibles</h1>
-        <p>Encuentra tu próximo hogar hoy mismo</p>
-      </div>
+      <div class="hero-content"></div>
     </header>
 
     <div class="container">
@@ -303,17 +371,33 @@
               class="img"
               style="background-image: url('./img/praderas.jpeg')"
             ></div>
+
             <span class="tag infonavit">INFONAVIT</span>
+
             <h3>Praderas del Valle</h3>
+
             <div class="precio">$480,000</div>
+
             <div class="botones">
+              <!-- BOTÓN VER MÁS -->
               <button class="btn-vermas">👁️ Ver más</button>
+
+              <!-- CONTENIDO OCULTO -->
               <div class="extra">
                 <div class="caracteristicas">
                   <div><i class="fa-solid fa-bed"></i> 1 Recámara</div>
                   <div><i class="fa-solid fa-bath"></i> 1 Baño</div>
                   <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
                 </div>
+
+                <!-- BOTÓN UBICACIÓN DENTRO -->
+                <a
+                  href="https://maps.app.goo.gl/zBQ6hkWQEqUBBsQr9?g_st=aw"
+                  target="_blank"
+                  class="btn-ubicacion"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+                </a>
               </div>
             </div>
           </div>
@@ -324,17 +408,33 @@
               class="img"
               style="background-image: url('./img/naranjos.jpeg')"
             ></div>
+
             <span class="tag infonavit">INFONAVIT</span>
+
             <h3>Fraccionamiento Los Naranjos</h3>
+
             <div class="precio">$1,800,000</div>
+
             <div class="botones">
+              <!-- BOTÓN VER MÁS -->
               <button class="btn-vermas">👁️ Ver más</button>
+
+              <!-- CONTENIDO DESPLEGABLE -->
               <div class="extra">
                 <div class="caracteristicas">
                   <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
                   <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
                   <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
                 </div>
+
+                <!-- BOTÓN UBICACIÓN -->
+                <a
+                  href="https://maps.app.goo.gl/Az18FhHXQM6uFKwz5?g_st=a"
+                  target="_blank"
+                  class="btn-ubicacion"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+                </a>
               </div>
             </div>
           </div>
@@ -345,17 +445,33 @@
               class="img"
               style="background-image: url('./img/banus.jpeg')"
             ></div>
+
             <span class="tag infonavit">INFONAVIT</span>
+
             <h3>Banus</h3>
+
             <div class="precio">$2,200,000</div>
+
             <div class="botones">
+              <!-- BOTÓN VER MÁS -->
               <button class="btn-vermas">👁️ Ver más</button>
+
+              <!-- CONTENIDO DESPLEGABLE -->
               <div class="extra">
                 <div class="caracteristicas">
                   <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
                   <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
-                  <div><i class="fa-solid fa-car"></i> 2 Cajónes</div>
+                  <div><i class="fa-solid fa-car"></i> 2 Cajones</div>
                 </div>
+
+                <!-- BOTÓN UBICACIÓN -->
+                <a
+                  href="https://maps.app.goo.gl/eFRDbeRNfQjSo3Ai7"
+                  target="_blank"
+                  class="btn-ubicacion"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+                </a>
               </div>
             </div>
           </div>
@@ -364,19 +480,35 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/bosques del nevado.jpeg')"
+              style="background-image: url('./img/bosques\ del\ nevado.jpeg')"
             ></div>
+
             <span class="tag infonavit">INFONAVIT</span>
+
             <h3>Bosques del Nevado</h3>
+
             <div class="precio">$1,300,000</div>
+
             <div class="botones">
+              <!-- BOTÓN VER MÁS -->
               <button class="btn-vermas">👁️ Ver más</button>
+
+              <!-- CONTENIDO DESPLEGABLE -->
               <div class="extra">
                 <div class="caracteristicas">
                   <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
                   <div><i class="fa-solid fa-bath"></i> 3 Baños</div>
                   <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
                 </div>
+
+                <!-- BOTÓN UBICACIÓN -->
+                <a
+                  href="https://www.google.com/maps?q=Bosques+del+Nevado+Toluca"
+                  target="_blank"
+                  class="btn-ubicacion"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+                </a>
               </div>
             </div>
           </div>
@@ -385,47 +517,85 @@
           <div class="card">
             <div
               class="img"
-              style="
-                background-image: url('./img/rinconada\ del\ valle\ .jpeg');
-              "
+              style="background-image: url('./img/rinconada-del-valle.jpeg')"
             ></div>
+
             <span class="tag infonavit">INFONAVIT</span>
+
             <h3>Rinconada del Valle</h3>
+
             <div class="precio">$1,240,000</div>
+
             <div class="detalles">Terreno excedente</div>
+
             <div class="botones">
+              <!-- BOTÓN VER MÁS -->
               <button class="btn-vermas">👁️ Ver más</button>
+
+              <!-- CONTENIDO DESPLEGABLE -->
               <div class="extra">
                 <div class="caracteristicas">
                   <div>
                     <i class="fa-solid fa-ruler-combined"></i> Terreno excedente
                   </div>
                 </div>
+
+                <!-- BOTÓN UBICACIÓN -->
+                <a
+                  href="https://maps.app.goo.gl/ydRi37rhLwibXMS36"
+                  target="_blank"
+                  class="btn-ubicacion"
+                >
+                  <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- Geo San Mateo -->
-          <div class="card">
-            <div
-              class="img"
-              style="background-image: url('./img/Geo San Mateo.jpeg')"
-            ></div>
-            <span class="tag infonavit">INFONAVIT</span>
-            <h3>Geo San Mateo</h3>
-            <div class="precio">$1,420,000</div>
-            <div class="detalles">Infonavit</div>
-            <div class="botones">
-              <button class="btn-vermas">👁️ Ver más</button>
-              <div class="extra">
-                <div class="caracteristicas">
-                  <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
-                  <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+         <!-- Geo San Mateo -->
+<div class="card">
+  
+  <div
+    class="img"
+    style="background-image: url('./img/geo-san-mateo.jpeg');"
+  ></div>
+
+  <span class="tag infonavit">INFONAVIT</span>
+
+  <h3>Geo San Mateo</h3>
+
+  <div class="precio">$1,420,000</div>
+
+  <div class="detalles">Infonavit</div>
+
+  <div class="botones">
+
+    <!-- BOTÓN VER MÁS -->
+    <button class="btn-vermas">👁️ Ver más</button>
+
+    <!-- CONTENIDO DESPLEGABLE -->
+    <div class="extra">
+      
+      <div class="caracteristicas">
+        <div><i class="fa-solid fa-bed"></i> 3 Recámaras</div>
+        <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
+      </div>
+
+      <!-- BOTÓN UBICACIÓN -->
+      <a 
+        href="https://www.google.com/maps?q=Geo+San+Mateo+Toluca"
+        target="_blank"
+        class="btn-ubicacion"
+      >
+        <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
       </section>
 
       <!-- BANCARIO / MIXTO -->
@@ -467,7 +637,7 @@
             ></div>
             <span class="tag contado">CONTADO</span>
             <h3>Héroes del 5 de Mayo II</h3>
-            <div class="precio">$3,000,000</div>
+            <div class="precio">$3'000,000</div>
             <div class="botones">
               <button class="btn-vermas">👁️ Ver más</button>
               <div class="extra">
@@ -487,7 +657,7 @@
             ></div>
             <span class="tag contado">TERRENO</span>
             <h3>Terreno San Pablo Autopan</h3>
-            <div class="precio">$1,700,000</div>
+            <div class="precio">$1'700,000</div>
             <div class="detalles">
               Todos los servicios en calle · Solo contado
             </div>
