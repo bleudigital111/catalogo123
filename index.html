@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Casas Disponibles</title>
 
+    <!-- Fuentes -->
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
       rel="stylesheet"
     />
     <link
@@ -34,12 +39,11 @@
         color: var(--oscuro);
       }
 
-      /* 🔥 HERO VIDEO OPTIMIZADO */
-
+      /* HERO VIDEO */
       .hero {
         position: relative;
-        height: 80vh;
-        min-height: 450px;
+        height: 70vh;
+        min-height: 400px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -50,11 +54,14 @@
 
       .hero-video {
         position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
         object-fit: cover;
-        object-position: center;
         z-index: 1;
       }
 
@@ -71,21 +78,43 @@
         padding: 20px;
       }
 
+      /* Fuente y animación especial solo para el hero */
       .hero-content h1 {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
         font-size: 3rem;
         margin: 0;
+        opacity: 0;
+        animation: fadeSlideIn 1.2s ease forwards;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        color: #fff;
       }
 
       .hero-content p {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: 1.2rem;
         margin-top: 10px;
-        opacity: 0.9;
+        opacity: 0;
+        animation: fadeSlideIn 1.6s ease forwards;
+        animation-delay: 0.4s;
+        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+        color: #fff;
+      }
+
+      @keyframes fadeSlideIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       @media (max-width: 768px) {
         .hero {
           height: 60vh;
-          min-height: 380px;
         }
 
         .hero-content h1 {
@@ -149,7 +178,7 @@
         transform: translateY(-8px);
       }
 
-      /* 🔥 IMÁGENES COMPLETAS */
+      /* IMÁGENES PROFESIONALES */
       .img {
         width: 100%;
         aspect-ratio: 4 / 3;
@@ -174,11 +203,9 @@
       .tag.infonavit {
         background: var(--azul);
       }
-
       .tag.bancario {
         background: var(--dorado);
       }
-
       .tag.contado {
         background: var(--verde);
       }
@@ -186,13 +213,11 @@
       .card h3 {
         margin: 8px 0;
       }
-
       .precio {
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--verde);
       }
-
       .detalles {
         font-size: 0.9rem;
         opacity: 0.85;
@@ -201,7 +226,6 @@
       .botones {
         margin-top: 15px;
       }
-
       .btn-vermas {
         width: 100%;
         border: none;
@@ -218,7 +242,6 @@
         overflow: hidden;
         transition: max-height 0.4s ease;
       }
-
       .extra.active {
         max-height: 300px;
         margin-bottom: 10px;
@@ -236,7 +259,6 @@
         align-items: center;
         gap: 8px;
       }
-
       .caracteristicas i {
         color: var(--verde);
       }
@@ -247,17 +269,22 @@
         font-size: 0.85rem;
         opacity: 0.7;
       }
+
+      @media (max-width: 480px) {
+        .img {
+          aspect-ratio: 3 / 4;
+        }
+      }
     </style>
   </head>
 
   <body>
     <header class="hero">
       <video autoplay muted loop playsinline class="hero-video">
-        <source src="./mp4/bleu.mp4" type="video/mp4" />
+        <source src="./mp4/bleu2.mp4" type="video/mp4" />
+        Tu navegador no soporta video HTML5.
       </video>
-
       <div class="hero-overlay"></div>
-
       <div class="hero-content">
         <h1>🏡 Casas Disponibles</h1>
         <p>Encuentra tu próximo hogar hoy mismo</p>
@@ -320,7 +347,6 @@
             <span class="tag infonavit">INFONAVIT</span>
             <h3>Banus</h3>
             <div class="precio">$2,200,000</div>
-
             <div class="botones">
               <button class="btn-vermas">👁️ Ver más</button>
               <div class="extra">
@@ -337,7 +363,7 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/bosques\ del\ nevado.jpeg')"
+              style="background-image: url('./img/bosques del nevado.jpeg')"
             ></div>
             <span class="tag infonavit">INFONAVIT</span>
             <h3>Bosques del Nevado</h3>
@@ -358,7 +384,9 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/rinconada.jpeg')"
+              style="
+                background-image: url('./img/rinconada\ del\ valle\ .jpeg');
+              "
             ></div>
             <span class="tag infonavit">INFONAVIT</span>
             <h3>Rinconada del Valle</h3>
@@ -380,7 +408,7 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/Geo\ San\ Mateo.jpeg')"
+              style="background-image: url('./img/Geo San Mateo.jpeg')"
             ></div>
             <span class="tag infonavit">INFONAVIT</span>
             <h3>Geo San Mateo</h3>
@@ -407,12 +435,11 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/santa\ teresa.jpeg')"
+              style="background-image: url('./img/santa teresa.jpeg')"
             ></div>
             <span class="tag bancario">BANCARIO</span>
             <h3>Santa Teresa</h3>
             <div class="precio">$600,000</div>
-
             <div class="botones">
               <button class="btn-vermas">👁️ Ver más</button>
               <div class="extra">
@@ -455,7 +482,7 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/San\ Pablo\ Au.jpeg')"
+              style="background-image: url('./img/San Pablo Au.jpeg')"
             ></div>
             <span class="tag contado">TERRENO</span>
             <h3>Terreno San Pablo Autopan</h3>
