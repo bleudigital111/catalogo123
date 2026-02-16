@@ -34,38 +34,27 @@
         color: var(--oscuro);
       }
 
-      /* HERO VIDEO COMPLETO */
-      .hero {
-        position: relative;
-        height: 70vh;
-        min-height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        text-align: center;
-        color: white;
-        background: #000; /* fondo negro para espacios del video */
-      }
 
       /* HERO VIDEO PROFESIONAL */
-      .hero {
-        position: relative;
-        height: 80vh;
-        min-height: 500px;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-      /* VIDEO OCUPA TODO */
-      .hero-video {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* LLENA TODO SIN FONDO NEGRO */
-      }
+/* VIDEO MÁS CLARO Y VIVO */
+.hero-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.25) contrast(1.1) saturate(1.1);
+}
+
 
       /* OVERLAY MÁS CLARO */
       .hero-overlay {
@@ -77,90 +66,7 @@
         ); /* MÁS CLARO */
       }
 
-      /* TEXTO */
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        color: white;
-        animation: fadeUp 1.2s ease forwards;
-      }
-
-      .hero-content h1 {
-        font-size: 3.5rem;
-        font-family: "Montserrat", sans-serif;
-        margin: 0;
-      }
-
-      .hero-content p {
-        font-size: 1.2rem;
-        margin-top: 10px;
-        opacity: 0.95;
-      }
-
-      .hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.45); /* overlay para legibilidad */
-        z-index: 2;
-      }
-
-      .hero-content {
-        position: absolute;
-        z-index: 3;
-        padding: 20px;
-        font-family: "Montserrat", sans-serif; /* tipografía especial solo aquí */
-        animation: fadeSlideIn 1.5s ease forwards;
-      }
-
-      .hero-content h1 {
-        font-size: 3rem;
-        margin: 0;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-      }
-
-      .hero-content p {
-        font-size: 1.3rem;
-        margin-top: 10px;
-        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
-      }
-
-      /* Animación de entrada */
-      @keyframes fadeSlideIn {
-        0% {
-          opacity: 0;
-          transform: translateY(40px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .hero {
-          height: auto; /* ajusta altura según video */
-        }
-
-        .hero-content h1 {
-          font-size: 2rem;
-        }
-
-        .hero-content p {
-          font-size: 1rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-content h1 {
-          font-size: 1.5rem;
-        }
-
-        .hero-content p {
-          font-size: 0.9rem;
-        }
-      }
-
+     
       /* CONTENIDO PRINCIPAL */
       .container {
         max-width: 1200px;
@@ -517,7 +423,7 @@
           <div class="card">
             <div
               class="img"
-              style="background-image: url('./img/rinconada-del-valle.jpeg')"
+              style="background-image: url('./img/rinconada\ del\ valle\ .jpeg')"
             ></div>
 
             <span class="tag infonavit">INFONAVIT</span>
@@ -557,7 +463,7 @@
   
   <div
     class="img"
-    style="background-image: url('./img/geo-san-mateo.jpeg');"
+    style="background-image: url('./img/Geo\ San\ Mateo.jpeg');"
   ></div>
 
   <span class="tag infonavit">INFONAVIT</span>
@@ -602,27 +508,49 @@
       <section class="seccion bancario">
         <h2>BANCARIO / MIXTO</h2>
         <div class="grid">
-          <!-- Santa Teresa -->
-          <div class="card">
-            <div
-              class="img"
-              style="background-image: url('./img/santa teresa.jpeg')"
-            ></div>
-            <span class="tag bancario">BANCARIO</span>
-            <h3>Santa Teresa</h3>
-            <div class="precio">$600,000</div>
-            <div class="botones">
-              <button class="btn-vermas">👁️ Ver más</button>
-              <div class="extra">
-                <div class="caracteristicas">
-                  <div><i class="fa-solid fa-bed"></i> 1 Recámara</div>
-                  <div><i class="fa-solid fa-bath"></i> 1 Baño</div>
-                  <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+         <!-- Santa Teresa -->
+<div class="card">
+  
+  <div
+    class="img"
+    style="background-image: url('./img/santa\ teresa.jpeg');"
+  ></div>
+
+  <span class="tag bancario">BANCARIO</span>
+
+  <h3>Santa Teresa</h3>
+
+  <div class="precio">$600,000</div>
+
+  <div class="botones">
+
+    <!-- BOTÓN VER MÁS -->
+    <button class="btn-vermas">👁️ Ver más</button>
+
+    <!-- CONTENIDO DESPLEGABLE -->
+    <div class="extra">
+      
+      <div class="caracteristicas">
+        <div><i class="fa-solid fa-bed"></i> 1 Recámara</div>
+        <div><i class="fa-solid fa-bath"></i> 1 Baño</div>
+        <div><i class="fa-solid fa-car"></i> 1 Cajón</div>
+      </div>
+
+      <!-- BOTÓN UBICACIÓN -->
+      <a 
+        href="https://maps.app.goo.gl/8b9y2cm1V6kZ5HFw8"
+        target="_blank"
+        class="btn-ubicacion"
+      >
+        <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
       </section>
 
       <!-- CONTADO / RECURSOS PROPIOS -->
@@ -630,50 +558,93 @@
         <h2>RECURSOS PROPIOS</h2>
         <div class="grid">
           <!-- Héroes del 5 de Mayo II -->
-          <div class="card">
-            <div
-              class="img"
-              style="background-image: url('./img/heroes.jpeg')"
-            ></div>
-            <span class="tag contado">CONTADO</span>
-            <h3>Héroes del 5 de Mayo II</h3>
-            <div class="precio">$3'000,000</div>
-            <div class="botones">
-              <button class="btn-vermas">👁️ Ver más</button>
-              <div class="extra">
-                <div class="caracteristicas">
-                  <div><i class="fa-solid fa-bed"></i> 4 Recámaras</div>
-                  <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="card">
+  
+  <div
+    class="img"
+    style="background-image: url('./img/heroes.jpeg');"
+  ></div>
 
-          <!-- Terreno San Pablo Autopan -->
-          <div class="card">
-            <div
-              class="img"
-              style="background-image: url('./img/San Pablo Au.jpeg')"
-            ></div>
-            <span class="tag contado">TERRENO</span>
-            <h3>Terreno San Pablo Autopan</h3>
-            <div class="precio">$1'700,000</div>
-            <div class="detalles">
-              Todos los servicios en calle · Solo contado
-            </div>
-            <div class="botones">
-              <button class="btn-vermas">👁️ Ver más</button>
-              <div class="extra">
-                <div class="caracteristicas">
-                  <div><i class="fa-solid fa-road"></i> Calle pavimentada</div>
-                  <div>
-                    <i class="fa-solid fa-plug"></i> Servicios completos
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <span class="tag contado">CONTADO</span>
+
+  <h3>Héroes del 5 de Mayo II</h3>
+
+  <div class="precio">$3,000,000</div>
+
+  <div class="botones">
+
+    <!-- BOTÓN VER MÁS -->
+    <button class="btn-vermas">👁️ Ver más</button>
+
+    <!-- CONTENIDO DESPLEGABLE -->
+    <div class="extra">
+      
+      <div class="caracteristicas">
+        <div><i class="fa-solid fa-bed"></i> 4 Recámaras</div>
+        <div><i class="fa-solid fa-bath"></i> 2 Baños</div>
+      </div>
+
+      <!-- BOTÓN UBICACIÓN -->
+      <a 
+        href="https://maps.app.goo.gl/hJtEgTe7SvHFoKAE8"
+        target="_blank"
+        class="btn-ubicacion"
+      >
+        <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+         <!-- Terreno San Pablo Autopan -->
+<div class="card">
+  
+  <div
+    class="img"
+    style="background-image: url('./img/San\ Pablo\ Au.jpeg');"
+  ></div>
+
+  <span class="tag contado">TERRENO</span>
+
+  <h3>Terreno San Pablo Autopan</h3>
+
+  <div class="precio">$1,700,000</div>
+
+  <div class="detalles">
+    Todos los servicios en calle · Solo contado
+  </div>
+
+  <div class="botones">
+
+    <!-- BOTÓN VER MÁS -->
+    <button class="btn-vermas">👁️ Ver más</button>
+
+    <!-- CONTENIDO DESPLEGABLE -->
+    <div class="extra">
+      
+      <div class="caracteristicas">
+        <div><i class="fa-solid fa-road"></i> Calle pavimentada</div>
+        <div><i class="fa-solid fa-plug"></i> Servicios completos</div>
+      </div>
+
+      <!-- BOTÓN UBICACIÓN -->
+      <a 
+        href="https://maps.app.goo.gl/QkZnynNkwzoPGf6r5"
+        target="_blank"
+        class="btn-ubicacion"
+      >
+        <i class="fa-solid fa-location-dot"></i> Ver Ubicación
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
       </section>
     </div>
 
