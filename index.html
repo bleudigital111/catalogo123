@@ -27,23 +27,74 @@
         box-sizing: border-box;
         font-family: Poppins;
       }
+
       body {
         margin: 0;
         background: var(--fondo);
         color: var(--oscuro);
       }
 
-      header {
-        background: white;
-        padding: 40px 20px;
+      /* 🔥 HERO VIDEO OPTIMIZADO */
+
+      .hero {
+        position: relative;
+        height: 80vh;
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: white;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       }
 
-      header h1 {
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 1;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 2;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        padding: 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 3rem;
         margin: 0;
-        color: var(--azul);
-        font-size: 2.4rem;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        opacity: 0.9;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          height: 60vh;
+          min-height: 380px;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
       }
 
       .container {
@@ -67,10 +118,12 @@
         color: var(--azul);
         border-color: var(--azul);
       }
+
       .bancario h2 {
         color: var(--dorado);
         border-color: var(--dorado);
       }
+
       .contado h2 {
         color: var(--verde);
         border-color: var(--verde);
@@ -89,17 +142,22 @@
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
         transition: 0.4s;
         position: relative;
+        overflow: hidden;
       }
 
       .card:hover {
         transform: translateY(-8px);
       }
 
+      /* 🔥 IMÁGENES COMPLETAS */
       .img {
-        height: 190px;
-        background-size: cover;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background-size: contain;
         background-position: center;
-        border-radius: 16px;
+        background-repeat: no-repeat;
+        background-color: #f1f5f9;
+        border-radius: 18px;
         margin-bottom: 15px;
       }
 
@@ -116,9 +174,11 @@
       .tag.infonavit {
         background: var(--azul);
       }
+
       .tag.bancario {
         background: var(--dorado);
       }
+
       .tag.contado {
         background: var(--verde);
       }
@@ -126,6 +186,7 @@
       .card h3 {
         margin: 8px 0;
       }
+
       .precio {
         font-size: 1.5rem;
         font-weight: 700;
@@ -190,8 +251,17 @@
   </head>
 
   <body>
-    <header>
-      <h1>🏡 Casas Disponibles</h1>
+    <header class="hero">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="./mp4/bleu.mp4" type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <h1>🏡 Casas Disponibles</h1>
+        <p>Encuentra tu próximo hogar hoy mismo</p>
+      </div>
     </header>
 
     <div class="container">
